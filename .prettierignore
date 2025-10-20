@@ -19,3 +19,5 @@ _books/**
 *.gif
 *.mp4
 *.pdf
+lighthouse_results/**
+INSTALL.md
