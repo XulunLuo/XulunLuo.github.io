@@ -87,8 +87,8 @@ description: Benchmark pipeline generating dynamic-scene datasets with true nove
 
 <div class="row">
   <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/tartan-dynamic/AirSimDrone.png" title="Trajectory graph & covisibility" class="img-fluid rounded z-depth-1" %}</div>
-  <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/tartan-dynamic/implement.jpg" title="Dynamic occlusion test" class="img-fluid rounded z-depth-1" %}</div>
-   <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/tartan-dynamic/cloud.jpg" title="Dynamic occlusion test" class="img-fluid rounded z-depth-1" %}</div>
+  <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/tartan-dynamic/implement.png" title="Dynamic occlusion test" class="img-fluid rounded z-depth-1" %}</div>
+   <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/tartan-dynamic/cloud.png" title="Dynamic occlusion test" class="img-fluid rounded z-depth-1" %}</div>
 </div>
 
 ---
