@@ -1,0 +1,80 @@
+meta:
+  theme: al-folio
+
+basics:
+  name: Xulun Luo
+  label: Software & XR Engineer
+  email: xulunl@andrew.cmu.edu
+  url: https://xulunluo.github.io
+  location:
+    city: Pittsburgh
+    region: PA
+    countryCode: US
+  profiles:
+    - network: GitHub
+      username: FieldLuo0728
+      url: https://github.com/FieldLuo0728
+    - network: LinkedIn
+      username: xulun-luo
+      url: https://www.linkedin.com/in/xulun-luo/
+
+projects:
+  - name: UWB-IMU-OptiTrack Camera Tracking (WLab / Madwell)
+    url: /projects/uwb-imu/
+    description: 25 Hz UDP pose stream, LTC sync, error-state Kalman fusion, per-rig extrinsics; robust LED-wall tracking under occlusion.
+
+  - name: AirLab Dynamic-Scene Benchmark (UE4 + AirSim)
+    url: /projects/tartan-dynamic/
+    description: Dynamic-scene injection, OctoMap/ESDF mapping, Fast-Planner + EGO-Planner integration, synchronized GT (RGB/depth/flow).
+
+  - name: The Nightcap Bar (Quest 3 VR)
+    url: https://xulunluo.github.io
+    description: VR bartending sim—liquid pouring/shaker physics, event-driven narrative, first-time-user onboarding proven in playtests.
+
+  - name: Gasoline Transportation Ally (Unity, custom controller)
+    url: /projects/gasoline/
+    description: Accessible controller (XAC + pressure/gyro), modular systems, collision/timer mechanics, priority-based targets.
+
+work:
+  - name: WLab Virtual Production — Madwell LLC
+    position: Software R&D Intern
+    startDate: "2025-02"
+    endDate: "2025-05"
+    highlights:
+      - Prototyped UWB-assisted camera tracking to augment OptiTrack on LED-wall stages.
+      - Implemented LTC sync + sensor fusion to reduce parallax jitter and stabilize pose.
+
+  - name: CMU AirLab
+    position: Visiting Researcher
+    startDate: "2025-06"
+    endDate: "2025-09"
+    highlights:
+      - Built UE4 + AirSim dynamic-scene benchmark; integrated Fast-Planner/EGO-Planner and GT pipelines.
+
+education:
+  - institution: Carnegie Mellon University
+    area: Entertainment Technology
+    studyType: Master of Entertainment Technology
+    startDate: "2025-08"
+    endDate: "2027-05"
+  - institution: New York University
+    area: Cinema Studies & Computer Science (Double Major)
+    studyType: B.A.
+    startDate: "2021-09"
+    endDate: "2025-05"
+
+skills:
+  - name: Engines
+    keywords: [Unity, Unreal]
+  - name: Programming
+    keywords: [C++, C#, Python]
+  - name: XR / Virtual Production
+    keywords: [OpenXR, UWB, Sensor Fusion, UDP Networking, Timecode/LTC]
+  - name: Platforms & Tools
+    keywords: [Raspberry Pi 4/5, ESP32/Arduino, Linux, Git, Adobe CC, Avid]
+
+languages:
+  - language: English
+    fluency: Professional
+  - language: Chinese
+    fluency: Native
