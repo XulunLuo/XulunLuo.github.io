@@ -52,8 +52,6 @@ description: A fast-paced top-down survival game where players refuel escaping c
   - Built **UI feedback systems** (fuel bars, color transitions, timer, win/lose panels).  
   - Collaborated on gameplay feel — adjusting descent intervals, explosion timings, and police animations for balance and flow.
 
-
-
 ---
 
 <h2 style="color:#33cc99;">System Overview</h2>
@@ -74,9 +72,10 @@ description: A fast-paced top-down survival game where players refuel escaping c
   - Explosion adds +4 fuel to adjacent lanes.  
   - Game ends when timer = 0 (Win) or all cars caught/exploded (Lose).
 
-
 <!-- Platform Abstraction Code -->
+
 {% raw %}
+
 ```csharp
 // System-facing interface (gameplay depends on this, not hardware)
 public interface IRefuelInput
@@ -99,12 +98,15 @@ public sealed class XACRefuelInput : IRefuelInput
     public Vector2 AimAxis => new Vector2(Input.GetAxisRaw("XAC_H"), Input.GetAxisRaw("XAC_V"));
 }
 ```
+
 {% endraw %}
+
 <!-- End Platform Abstraction Code -->
 
-
 <!-- Movement Policy Code -->
+
 {% raw %}
+
 ```csharp
 [CreateAssetMenu(menuName = "GTA/VerticalMovementPolicy")]
 public class VerticalMovementPolicy : ScriptableObject
@@ -115,7 +117,9 @@ public class VerticalMovementPolicy : ScriptableObject
         band <= 0 ? 1f : band > bandIntervals.Length ? bandIntervals[^1] : bandIntervals[band-1];
 }
 ```
+
 {% endraw %}
+
 <!-- End Movement Policy Code -->
 
 ---
@@ -136,7 +140,9 @@ public class VerticalMovementPolicy : ScriptableObject
 </div>
 
 <!-- Gasoline System Code -->
+
 {% raw %}
+
 ```csharp
 // Gasoline System (evented, time-driven)
 public interface ITimeSource { float DeltaTime { get; } }
@@ -181,29 +187,33 @@ public sealed class GasolineSystem
     public void SetDecayInterval(float seconds) => _decayInterval = Mathf.Max(0.3f, seconds);
 }
 ```
+
 {% endraw %}
+
 <!-- End Gasoline System Code -->
 
+- **Challenge 2 – Multi-car state synchronization**
 
-- **Challenge 2 – Multi-car state synchronization**  
-  - *Issue:* Cars updated asynchronously, causing desynchronized descent and explosion timing.  
-  - *Solution:* Centralized all time references to `Time.deltaTime` and unified car updates under the `GameManager`'s master clock.  
-  - *Outcome:* Stable multi-vehicle behavior across all lanes.
+  - _Issue:_ Cars updated asynchronously, causing desynchronized descent and explosion timing.
+  - _Solution:_ Centralized all time references to `Time.deltaTime` and unified car updates under the `GameManager`'s master clock.
+  - _Outcome:_ Stable multi-vehicle behavior across all lanes.
 
-- **Challenge 3 – Chain reaction control**  
-  - *Issue:* Explosions could loop infinitely as cars repeatedly refueled each other.  
-  - *Solution:* Added adjacency checks (`Mathf.Abs(carID - otherID) == 1`) and per-frame delay buffers.  
-  - *Outcome:* Predictable chain explosions without logic overflow.
+- **Challenge 3 – Chain reaction control**
 
-- **Challenge 4 – Input calibration and readability**  
-  - *Issue:* The analog trigger signal from the adaptive controller fluctuated unpredictably.  
-  - *Solution:* Smoothed the `Input.GetAxis("GasAddInput")` values and applied clamping to remove noise while preserving pressure sensitivity.  
-  - *Outcome:* Consistent refueling rate that felt responsive to both gentle and full-pressure inputs.
+  - _Issue:_ Explosions could loop infinitely as cars repeatedly refueled each other.
+  - _Solution:_ Added adjacency checks (`Mathf.Abs(carID - otherID) == 1`) and per-frame delay buffers.
+  - _Outcome:_ Predictable chain explosions without logic overflow.
 
-- **Challenge 5 – Visual and onboarding clarity**  
-  - *Issue:* Early testers couldn't interpret fuel or explosion feedback.  
-  - *Solution:* Added color-coded fuel bars (green–yellow–red), glow warnings, and a step-by-step tutorial sequence using coroutine-driven dialogues.  
-  - *Outcome:* Players learned faster, and late-stage playtests showed clear comprehension within one round.
+- **Challenge 4 – Input calibration and readability**
+
+  - _Issue:_ The analog trigger signal from the adaptive controller fluctuated unpredictably.
+  - _Solution:_ Smoothed the `Input.GetAxis("GasAddInput")` values and applied clamping to remove noise while preserving pressure sensitivity.
+  - _Outcome:_ Consistent refueling rate that felt responsive to both gentle and full-pressure inputs.
+
+- **Challenge 5 – Visual and onboarding clarity**
+  - _Issue:_ Early testers couldn't interpret fuel or explosion feedback.
+  - _Solution:_ Added color-coded fuel bars (green–yellow–red), glow warnings, and a step-by-step tutorial sequence using coroutine-driven dialogues.
+  - _Outcome:_ Players learned faster, and late-stage playtests showed clear comprehension within one round.
 
 ---
 

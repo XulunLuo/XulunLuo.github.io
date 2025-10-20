@@ -97,27 +97,30 @@ description: Benchmark pipeline generating dynamic-scene datasets with true nove
 - **Benchmark gaps → Need true novel views**  
   - *Challenge:* Train/test cameras share paths.  
   - *Solution:* Sampled off-trajectory poses filtered by covisibility maps.  
-  - *Outcome:* Enforced extrapolation—models must reconstruct unseen angles.  
+  - *Outcome:* Enforced extrapolation—models must reconstruct unseen angles.
 
-- **Too-static scenes → Raise dynamic load**  
-  - *Challenge:* < 50 % moving pixels per frame.  
-  - *Solution:* Injected multiple scripted actors with stop/start occlusion churn.  
-  - *Outcome:* Evaluates motion-heavy robustness.  
+- **Too-static scenes → Raise dynamic load**
 
-- **Planner bring-up at scale**  
-  - *Challenge:* ROS node timers/topic sync brittle.  
-  - *Solution:* Unified topic relays, staged node startup, finite timers.  
-  - *Outcome:* Smooth voxel updates and reproducible B-splines.  
+  - _Challenge:_ < 50 % moving pixels per frame.
+  - _Solution:_ Injected multiple scripted actors with stop/start occlusion churn.
+  - _Outcome:_ Evaluates motion-heavy robustness.
 
-- **Interpolation metrics inflated**  
-  - *Challenge:* PSNR/SSIM over near-duplicate frames.  
-  - *Solution:* Covisibility-masked metric evaluation.  
-  - *Outcome:* Scores reflect true novel-view reconstruction.  
+- **Planner bring-up at scale**
 
-- **Depth + Pose flow limits → Renderer motion vectors**  
-  - *Challenge:* Egoflow mislabels camera vs object motion.  
-  - *Solution:* Plan UE Velocity/Motion-Vector pass for per-pixel flow GT.  
-  - *Outcome:* Valid optical-flow supervision even in high motion scenes.  
+  - _Challenge:_ ROS node timers/topic sync brittle.
+  - _Solution:_ Unified topic relays, staged node startup, finite timers.
+  - _Outcome:_ Smooth voxel updates and reproducible B-splines.
+
+- **Interpolation metrics inflated**
+
+  - _Challenge:_ PSNR/SSIM over near-duplicate frames.
+  - _Solution:_ Covisibility-masked metric evaluation.
+  - _Outcome:_ Scores reflect true novel-view reconstruction.
+
+- **Depth + Pose flow limits → Renderer motion vectors**
+  - _Challenge:_ Egoflow mislabels camera vs object motion.
+  - _Solution:_ Plan UE Velocity/Motion-Vector pass for per-pixel flow GT.
+  - _Outcome:_ Valid optical-flow supervision even in high motion scenes.
 
 <div class="row">
   <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/tartan-dynamic/DynamicObjectTest.png" title="Dynamic occlusion test" class="img-fluid rounded z-depth-1" %}</div>

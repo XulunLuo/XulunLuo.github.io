@@ -5,7 +5,7 @@ permalink: /projects/
 description: A showcase of my work across software engineering, VR/XR development, and interactive media
 nav: true
 nav_order: 3
-display_categories: 
+display_categories:
 horizontal: false
 ---
 

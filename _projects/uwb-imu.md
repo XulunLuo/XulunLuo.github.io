@@ -58,30 +58,34 @@ On LED-wall stages, optical systems (e.g., OptiTrack) can jitter or drop when ma
   - **Solution:** Prototyped a **UWB-assisted fallback** system to complement optical tracking and maintain continuous pose estimation during occlusions.  
   - **Outcome:** Short dropouts no longer interrupted camera tracking, ensuring stable and uninterrupted motion capture.
 
-- **Challenge:** UWB vendor documentation lacked details on frame layouts, with anchors reporting only relative distances instead of absolute positions.  
-  - **Solution:** **Reverse-engineered** the communication protocol through differential probing and systematic logging, mapping byte fields to physical values and exporting standardized ASCII/JSON data.  
+- **Challenge:** UWB vendor documentation lacked details on frame layouts, with anchors reporting only relative distances instead of absolute positions.
+
+  - **Solution:** **Reverse-engineered** the communication protocol through differential probing and systematic logging, mapping byte fields to physical values and exporting standardized ASCII/JSON data.
   - **Outcome:** Achieved a transparent, normalized data stream compatible with other sensor inputs and fusion scripts.
 
-- **Challenge:** UWB data alone exhibited severe vertical drift, even with a well-distributed 3D anchor setup.  
-  - **Solution:** Integrated **dual IMUs** to provide quaternion orientation, angular rate, and acceleration data for vertical stabilization and motion priors.  
+- **Challenge:** UWB data alone exhibited severe vertical drift, even with a well-distributed 3D anchor setup.
+
+  - **Solution:** Integrated **dual IMUs** to provide quaternion orientation, angular rate, and acceleration data for vertical stabilization and motion priors.
   - **Outcome:** The system maintained stable Z-axis readings and realistic movement profiles, significantly improving overall tracking fidelity.
 
-- **Challenge:** Edge computing on ESP32 required complex multithreading and caused race conditions, slowing iteration and debugging.  
-  - **Solution:** Migrated computation to a **Raspberry Pi running Python**, enabling threaded serial and UDP I/O with lightweight concurrency control.  
+- **Challenge:** Edge computing on ESP32 required complex multithreading and caused race conditions, slowing iteration and debugging.
+
+  - **Solution:** Migrated computation to a **Raspberry Pi running Python**, enabling threaded serial and UDP I/O with lightweight concurrency control.
   - **Outcome:** Increased iteration speed, improved stability, and simplified live debugging during on-set testing.
 
-- **Challenge:** Timestamp drift between UWB and IMU modules led to inconsistent cross-sensor pairing.  
-  - **Solution:** Developed a **bounded time-window matching algorithm** that only emits fused data when packets align temporally, discarding partial records.  
+- **Challenge:** Timestamp drift between UWB and IMU modules led to inconsistent cross-sensor pairing.
+
+  - **Solution:** Developed a **bounded time-window matching algorithm** that only emits fused data when packets align temporally, discarding partial records.
   - **Outcome:** Achieved consistent, drift-free synchronization across heterogeneous sensors suitable for data logging and model training.
 
-- **Challenge:** Raw binary packets caused instability and inconsistent data rates during streaming.  
-  - **Solution:** Implemented **rate control and structured UDP telemetry** at 25 Hz with sequence IDs, validity flags, and a jitter buffer.  
+- **Challenge:** Raw binary packets caused instability and inconsistent data rates during streaming.
+
+  - **Solution:** Implemented **rate control and structured UDP telemetry** at 25 Hz with sequence IDs, validity flags, and a jitter buffer.
   - **Outcome:** Delivered smooth, reliable telemetry suitable for real-time visualization and dataset generation.
 
-- **Challenge:** Multi-sensor data streams required precise frame-true synchronization for motion analysis and training datasets.  
-  - **Solution:** Adopted **LTC (Linear Time Code)** as the global master clock, with automatic retiming whenever drift exceeded the set threshold.  
+- **Challenge:** Multi-sensor data streams required precise frame-true synchronization for motion analysis and training datasets.
+  - **Solution:** Adopted **LTC (Linear Time Code)** as the global master clock, with automatic retiming whenever drift exceeded the set threshold.
   - **Outcome:** Established frame-accurate timing across all capture systems, aligning with professional film and virtual production standards.
-
 
 <div class="row">
   <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/uwb-imu/CodeSnippet.jpg" title="Packet parser & threads" class="img-fluid rounded z-depth-1" %}</div>

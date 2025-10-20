@@ -52,24 +52,30 @@
     <!-- Author / Film Crew -->
     <div class="author">
       {% if entry.director %}
-        <strong>Director:</strong> {{ entry.director }}<br>
+        <strong>Director:</strong> {{ entry.director -}}
+        <br>
       {% endif %}
       {% if entry.producer %}
-        <strong>Producer:</strong> {{ entry.producer }}<br>
+        <strong>Producer:</strong> {{ entry.producer -}}
+        <br>
       {% endif %}
       {% if entry.executive_producer %}
-        <strong>Executive Producer:</strong> {{ entry.executive_producer }}<br>
+        <strong>Executive Producer:</strong> {{ entry.executive_producer -}}
+        <br>
       {% endif %}
       {% if entry.cinematographer %}
-        <strong>Cinematographer:</strong> {{ entry.cinematographer }}<br>
+        <strong>Cinematographer:</strong> {{ entry.cinematographer -}}
+        <br>
       {% endif %}
       {% if entry.production_designer %}
-        <strong>Production Designer:</strong> {{ entry.production_designer }}<br>
+        <strong>Production Designer:</strong> {{ entry.production_designer -}}
+        <br>
       {% endif %}
       {% if entry.artist %}
-        <strong>Artist:</strong> {{ entry.artist }}<br>
+        <strong>Artist:</strong> {{ entry.artist -}}
+        <br>
       {% endif %}
-      
+
       {% if entry.author_array %}
         {% assign author_array_size = entry.author_array | size %}
         {% assign author_array_limit = author_array_size %}
@@ -156,7 +162,7 @@
           </span>
         {% endif %}
       {% endif %}
-      
+
       {% if entry.annotation %}
         <i
           class="fa-solid fa-circle-info ml-1"

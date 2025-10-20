@@ -2,7 +2,7 @@
 layout: about
 title: about
 permalink: /
-subtitle: Software Engineering • Game Design • Interactive Experience • Filmmaking 
+subtitle: Software Engineering • Game Design • Interactive Experience • Filmmaking
 
 profile:
   align: right
@@ -26,11 +26,11 @@ latest_posts:
   limit: 3 # leave blank to include all the blog posts
 ---
 
-I'm a master's student at Carnegie Mellon University and a software engineer focused on interactive and entertainment technologies, bridging film 🎬, game design 🎮, and real-time simulation. 
+I'm a master's student at Carnegie Mellon University and a software engineer focused on interactive and entertainment technologies, bridging film 🎬, game design 🎮, and real-time simulation.
 
 My work centers on designing robust systems that merge creativity with precision.
 
-With a foundation in both cinematic storytelling and computer science, I thrive at the intersection where engineering meets imagination ✨. 
+With a foundation in both cinematic storytelling and computer science, I thrive at the intersection where engineering meets imagination ✨.
 
 Whether developing cross-platform applications, integrating diverse hardware systems, or building tools that bridge different creative technologies, I aim to make emerging technologies accessible for creators and audiences alike.
 
