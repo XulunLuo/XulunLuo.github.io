@@ -89,8 +89,8 @@ On LED-wall stages, optical systems (e.g., OptiTrack) can jitter or drop when ma
 
 <div class="row">
   <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/uwb-imu/CodeSnippet.jpg" title="Packet parser & threads" class="img-fluid rounded z-depth-1" %}</div>
-  <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/uwb-imu/datapackage.jpg" title="Normalized telemetry record" class="img-fluid rounded z-depth-1" %}</div>
-  <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/uwb-imu/kalman.jpg" title="Fusion & EKF diagram" class="img-fluid rounded z-depth-1" %}</div>
+  <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/uwb-imu/datapackage1.jpg" title="Normalized telemetry record" class="img-fluid rounded z-depth-1" %}</div>
+  <div class="col-sm mt-3">{% include figure.liquid path="assets/img/projects/uwb-imu/kalman1.jpg" title="Fusion & EKF diagram" class="img-fluid rounded z-depth-1" %}</div>
 </div>
 
 <div class="row">
